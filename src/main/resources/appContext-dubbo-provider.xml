@@ -27,17 +27,9 @@
 	    <dubbo:registry protocol="zookeeper" port="2181" address="192.168.1.19" />	 
    	</beans>
    	
-   	<beans profile="test">
-   		<dubbo:registry protocol="zookeeper" port="2182" address="192.168.1.16,192.168.1.17,192.168.1.18" />
-   	</beans> 
-   	
    	<beans profile="product">
    		<!-- 广播中心地址 -->
-	    <dubbo:registry protocol="zookeeper" port="2181" address="10.20.22.22,10.20.22.21,10.20.22.11" />
+	    <dubbo:registry protocol="zookeeper" port="2181" address="10.25.0.237" />
    	</beans> 
-   	
-   	<beans profile="beta">
-   		<!-- 广播中心地址 -->
-	    <dubbo:registry protocol="zookeeper" port="2281" address="10.20.100.25" />
-   	</beans>
+
 </beans>
