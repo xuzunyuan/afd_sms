@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<sp name="emay" default="true" >
+	<clientClassName>com.afd.sms.sp.impl.EmayClient</clientClassName>
+	<initParams>
+		serialNumber = 9SDK-EMY-0999-JBRNM,
+		serialpass = 893435,
+		key = afd
+	</initParams> 
+	<threads>4</threads>
+	<queueSize>500</queueSize>
+	<bizCodes>
+		seller_register, 
+		seller_forget
+	</bizCodes>
+</sp>
+</configuration>		
