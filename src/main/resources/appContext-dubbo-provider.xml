@@ -7,10 +7,10 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
  
-    <!-- ÓÃhessianÐ­Òé±©Â¶·þÎñ -->
-	<!-- jetty·þÎñÊ±£¬ÉèÖÃserver="servlet" servlet·þÎñÊ±£¬ÉèÖÃserver="jetty" -->
-	<!-- hessianÐ­ÒéÊ±ÒªÓë·þÎñÆô¶¯µÄ¶Ë¿ÚÒ»ÖÂ£¬´Ë´¦£¬portÓëtomcat¾ùÎª8080£»dubboÐ­Òé²»×öÏÞÖÆ -->
-	<!-- hessianÐ­ÒéÊ±£¬contextpathÒªÓëÏîÄ¿ÃûÒ»ÖÂ -->
+    <!-- ç”¨hessianåè®®æš´éœ²æœåŠ¡ -->
+	<!-- jettyæœåŠ¡æ—¶ï¼Œè®¾ç½®server="servlet" servletæœåŠ¡æ—¶ï¼Œè®¾ç½®server="jetty" -->
+	<!-- hessianåè®®æ—¶è¦ä¸ŽæœåŠ¡å¯åŠ¨çš„ç«¯å£ä¸€è‡´ï¼Œæ­¤å¤„ï¼Œportä¸Žtomcatå‡ä¸º8080ï¼›dubboåè®®ä¸åšé™åˆ¶ -->
+	<!-- hessianåè®®æ—¶ï¼Œcontextpathè¦ä¸Žé¡¹ç›®åä¸€è‡´ -->
     <!--<dubbo:protocol name="hessian" port="8080" server="servlet" contextpath="afd_sms" /> -->
     
     <dubbo:application name="afd_service"/>   
@@ -19,16 +19,16 @@
 		charset="UTF-8" threadpool="fixed" threads="100" queues="0" iothreads="9" buffer="8192"
 		accepts="1000" payload="8388608" />
  	 	
-    <!-- ÉùÃ÷ÐèÒª±©Â¶µÄ·þÎñ½Ó¿Ú  loadbalance: random(Ëæ»ú);roundrobin(ÂÖÑ¯);leastactive(×îÐ¡»îÔ¾µ÷ÓÃ)-->
+    <!-- å£°æ˜Žéœ€è¦æš´éœ²çš„æœåŠ¡æŽ¥å£  loadbalance: random(éšæœº);roundrobin(è½®è¯¢);leastactive(æœ€å°æ´»è·ƒè°ƒç”¨)-->
     <dubbo:service timeout="5000" interface="com.afd.sms.service.ISmsService" loadbalance="random" ref="smsService" />
     
-    <!-- ×¢²áÖÐÐÄ -->
+    <!-- æ³¨å†Œä¸­å¿ƒ -->
     <beans profile="develop">   		
-	    <dubbo:registry protocol="zookeeper" port="2181" address="192.168.1.19" />	 
+	    <dubbo:registry protocol="zookeeper" port="2181" address="127.0.0.1" />	 
    	</beans>
    	
    	<beans profile="product">
-   		<!-- ¹ã²¥ÖÐÐÄµØÖ· -->
+   		<!-- å¹¿æ’­ä¸­å¿ƒåœ°å€ -->
 	    <dubbo:registry protocol="zookeeper" port="2181" address="10.25.0.237" />
    	</beans> 
 

@@ -3,6 +3,7 @@ package com.afd.sms.tools;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -13,6 +14,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.apache.http.message.BasicNameValuePair;  
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 public class SmsClient{
 	 
@@ -21,7 +25,21 @@ public class SmsClient{
 	 private String pwd="46511CB817F5F2622E846B966D3B";
      private String sign="afd";
 	 
-     public   int sendSMS(String[] mobile,String msg,int type){
+     public SmsClient(){
+    	 Resource resource = new ClassPathResource("/application.properties");
+    	 try {
+			Properties props = PropertiesLoaderUtils.loadProperties(resource);
+			System.out.println(props.get("url"));
+			this.url=props.getProperty("url");
+			this.user=props.getProperty("user");
+			this.pwd=props.getProperty("pwd");
+			this.sign=props.getProperty("sign");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+     }
+     
+	public   int sendSMS(String[] mobile,String msg,int type){
     		if(null == msg || 0 == msg.length()){
     			return -1;
     		}
@@ -39,7 +57,7 @@ public class SmsClient{
   			 if(k<0){mobile_str.append(",");}else{k++;}
   			 mobile_str.append(mobile[i]);
   		   }
-  		   System.out.print(mobile_str.toString());
+  		   System.out.println(mobile_str.toString());
   		  nvps.add(new BasicNameValuePair("mobile", mobile_str.toString())); 
   		  
   		  nvps.add(new BasicNameValuePair("content", msg));  
@@ -67,7 +85,7 @@ public class SmsClient{
  			 if(k<0){mobile_str.append(",");}else{k++;}
  			 mobile_str.append(mobile[i]);
  		   }
- 		   System.out.print(mobile_str.toString());
+ 		   System.out.println(mobile_str.toString());
 		  nvps.add(new BasicNameValuePair("mobile", mobile_str.toString())); 
 		  
 		  nvps.add(new BasicNameValuePair("content", envelopSms));  
@@ -95,7 +113,7 @@ public class SmsClient{
 				return -3;
 			}
 			String data = EntityUtils.toString(entity);
-			System.out.print(data);
+			System.out.println(data);
 			String[] rets = data.split(",");
 			if(rets[0].endsWith("0")){
 				return 0;

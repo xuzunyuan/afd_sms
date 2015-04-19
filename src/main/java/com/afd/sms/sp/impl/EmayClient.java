@@ -71,7 +71,7 @@ public class EmayClient implements ISpClient {
 	}
 
 	private String envelopSms(String smsContent) {
-		return "【afd】" + smsContent;
+		return   smsContent;
 	}
 
 	@Override
