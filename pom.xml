@@ -35,7 +35,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>yiwang_sms</finalName>
+		<finalName>afd_sms</finalName>
 	</build>
 </project>
 
