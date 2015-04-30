@@ -103,7 +103,7 @@ public class SmsClient{
 		CloseableHttpClient closeableHttpClient = httpClientBuilder.build(); 
 		HttpPost httpPost = new HttpPost(url);
 		try {
-			httpPost.setEntity(new UrlEncodedFormEntity(nvps)); 
+			httpPost.setEntity(new UrlEncodedFormEntity(nvps,"UTF-8")); 
 			HttpResponse response = closeableHttpClient.execute(httpPost);
 			HttpEntity entity = response.getEntity();
 			if (200 != response.getStatusLine().getStatusCode()) {
