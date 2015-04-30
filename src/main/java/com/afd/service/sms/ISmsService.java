@@ -2,7 +2,7 @@
  * Copyright (c)2013-2014 by www.afd.com. All rights reserved.
  * 
  */
-package com.afd.sms.service;
+package com.afd.service.sms;
 
 /**
  * 短信发送服务接口

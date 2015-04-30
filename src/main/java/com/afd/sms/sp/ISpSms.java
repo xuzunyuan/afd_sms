@@ -4,7 +4,7 @@
  */
 package com.afd.sms.sp;
 
-import com.afd.sms.service.ISmsService;
+import com.afd.service.sms.ISmsService;
 
 /**
  * SP客户端短信功能接口

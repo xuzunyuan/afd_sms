@@ -12,9 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.afd.service.sms.ISmsService;
 import com.afd.sms.config.Config;
 import com.afd.sms.config.SpEntity;
-import com.afd.sms.service.ISmsService;
 import com.afd.sms.sp.ISpClient;
 import com.google.common.collect.Lists;
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.afd.sms.service.ISmsService;
+import com.afd.service.sms.ISmsService;
 
 /**
  * 短消息http服务
