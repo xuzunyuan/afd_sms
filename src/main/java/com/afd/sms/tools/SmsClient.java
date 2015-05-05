@@ -33,7 +33,7 @@ public class SmsClient{
 			this.url=props.getProperty("url");
 			this.user=props.getProperty("user");
 			this.pwd=props.getProperty("pwd");
-			this.sign=props.getProperty("sign");
+			this.sign=new String(props.getProperty("sign").getBytes("ISO-8859-1"),"UTF-8");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
